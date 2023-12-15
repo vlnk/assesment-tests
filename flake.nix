@@ -42,9 +42,11 @@
           shellHook = ''
             export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]}
 
+            # manage python environment
             export PIP_HOME=$(pwd)/pip_packages
             export PYTHONPATH="$PIP_PREFIX/${pkgs.python3.sitePackages}:$PYTHONPATH"
             export PATH="$PIP_PREFIX/bin:$PATH"
+
             unset SOURCE_DATE_EPOCH
 
             if [ ! -d ".venv" ]; then
@@ -52,6 +54,10 @@
             fi
 
             source .venv/bin/activate
+
+            # manage nodejs environment
+            export PATH=$(pwd)/.npm-packages/bin:$PATH
+            export NODE_PATH=$(pwd)/.npm-packages/lib/node_modules
             '';
         };
       });
