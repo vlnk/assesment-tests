@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    standalone: true,
+    styleUrls: ['./app.component.scss'],
+    imports: [
+        HomeComponent
+    ]
 })
+
 export class AppComponent {
-  title = 'tuto-angular';
+    title = 'homes';
 }

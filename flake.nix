@@ -29,7 +29,10 @@
             opentofu # https://opentofu.org/
             pre-commit # https://pre-commit.com/
             ruff # https://github.com/astral-sh/ruff
+
             create-react-app
+            typescript
+            nodePackages_latest.typescript-language-server
 
             nodejs # https://nodejs.org/en
             nest-cli # https://nestjs.com/
@@ -58,6 +61,10 @@
             # manage nodejs environment
             export PATH=$(pwd)/.npm-packages/bin:$PATH
             export NODE_PATH=$(pwd)/.npm-packages/lib/node_modules
+
+            npm install \
+                --prefix $(pwd)/.npm-packages \
+                -g typescript @angular/language-service@next @angular/language-server
             '';
         };
       });
